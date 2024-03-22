@@ -25,7 +25,7 @@ APPLICATIONS: List[Union[Industry, Domain, Research]] = [Industry.Environmental(
 CATEGORY: Category = Category.Environmental()
 
 CV_TASKS: List[CVTask] = [CVTask.ObjectDetection(), CVTask.Identification()]
-ANNOTATION_TYPES: List[AnnotationType] = None
+ANNOTATION_TYPES: List[AnnotationType] = [AnnotationType.ObjectDetection()]
 
 RELEASE_DATE: Optional[str] = "2020-10-31"  # e.g. "YYYY-MM-DD"
 if RELEASE_DATE is None:
