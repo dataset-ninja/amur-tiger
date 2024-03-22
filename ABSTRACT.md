@@ -4,10 +4,9 @@ The authors have unveiled a pioneering large-scale dataset named **ATRW: Amur Ti
 
 Preserving wildlife is imperative for upholding species diversity. The failure to safeguard endangered species can disrupt ecosystems and adversely impact environmental well-being. This task increasingly relies on precisely monitoring the geographic distribution and population health of these endangered species, particularly in the face of threats like poaching and habitat loss. Conventional methods of outfitting wildlife with transmitters have drawbacks, including sensor malfunctions, limited scalability to large populations, and an inability to gauge wildlife interactions with their surroundings. Leveraging computer vision techniques offers a promising avenue for wildlife monitoring, especially through the deployment of unmanned aerial vehicles or camera traps to gather visual data. Among these techniques, re-identification (re-ID) emerges as a crucial method for achieving accurate population assessments and tracking wildlife movement patterns. Notably, Amur Tigers are designated as an endangered species, with their population dwindling to fewer than 600 individuals.
 
-<img src="https://github.com/dataset-ninja/amur-tiger/assets/120389559/ce14c335-c044-4254-ad31-abac0a7601e2" alt="image" width="800">
+<img src="https://github.com/dataset-ninja/amur-tiger/assets/120389559/ce14c335-c044-4254-ad31-abac0a7601e2" alt="image" width="1000">
 
-<span style="font-size: smaller; font-style: italic;">Framework of Amur tiger re-ID system. Motion sensor triggers lightweight detector on smart camera to further filter non-tiger images. Tiger related images are fetched or uploaded to cloud services, which will run pose estimation and re-ID algorithm to produce tiger to camera association. As cameras are discrete placed in a conservation park, the authors could visualize the tiger moving trajectory on the park map
-based on camera position information.</span>
+<span style="font-size: smaller; font-style: italic;">Framework of Amur tiger re-ID system. Motion sensor triggers lightweight detector on smart camera to further filter non-tiger images. Tiger related images are fetched or uploaded to cloud services, which will run pose estimation and re-ID algorithm to produce tiger to camera association. As cameras are discrete placed in a conservation park, the authors could visualize the tiger moving trajectory on the park map based on camera position information.</span>
 
 However, the implementation of such systems faces several obstacles. Firstly, there are resource constraints on the edge camera, necessitating the need for low-power and precise tiger detection to activate image capture. This helps prevent the unnecessary capture of countless irrelevant images, which could otherwise consume storage space and drain battery life. Secondly, contemporary re-identification (re-ID) methods typically focus on pedestrians and cars as target objects. However, these objects typically exhibit limited pose variations within relatively confined environments. In contrast, wildlife data present a myriad of pose variations due to their unrestricted four-limbed movement, intricate natural backgrounds, and diverse lighting conditions. Thirdly, progress in addressing these challenges is hindered by the scarcity of datasets and benchmarks that extend beyond object types such as pedestrians and cars. These existing datasets often lack a systematic benchmarking protocol to evaluate end-to-end re-ID performance accurately. Consequently, there is a pressing need to develop new datasets and benchmarks specifically tailored for studying wildlife re-identification in a systematic manner.
 
@@ -21,17 +20,17 @@ Similar to numerous other re-identification (re-ID) datasets, the authors have i
 
 The object detection module enables the system to specifically choose frames containing an Amur tiger, thereby minimizing storage, power, and networking usage. The authors' tiger detection dataset comprises 4,434 images containing a total of 9,496 bounding boxes. While some of these bounding boxes may indicate an 'unknown' tiger identity, as previously mentioned, these annotations remain valuable for training and evaluating object detection models.
 
-<img src="https://github.com/dataset-ninja/amur-tiger/assets/120389559/5aa8da45-162b-4679-b7d7-93371c5734b2" alt="image" width="800">
+<img src="https://github.com/dataset-ninja/amur-tiger/assets/120389559/5aa8da45-162b-4679-b7d7-93371c5734b2" alt="image" width="500">
 
 <span style="font-size: smaller; font-style: italic;">Distribution of width and aspect ratio (width/height) of bounding boxes in the dataset.</span>
 
-<img src="https://github.com/dataset-ninja/amur-tiger/assets/120389559/fc21c4ae-ea00-4843-9ba8-811c261a028e" alt="image" width="800">
+<img src="https://github.com/dataset-ninja/amur-tiger/assets/120389559/fc21c4ae-ea00-4843-9ba8-811c261a028e" alt="image" width="1000">
 
 <span style="font-size: smaller; font-style: italic;">Example images of detection subset.</span>
 
 Stripe information, as suggested by professionals, serves as the basis for tiger re-identification (re-ID), with the authors specifically focusing on images depicting the left and right sides of the tiger's body. Each side is considered a distinct entity, as previously mentioned. To assess re-ID algorithms, two evaluation settings are defined. Firstly, in the 'plain re-ID' setting, both query and database tigers are cropped and standardized using manually annotated bounding boxes and poses. Secondly, in the 'wild re-ID' setting, automatic tiger detection and pose estimation are employed to normalize tigers for subsequent re-ID analysis. The re-ID dataset comprises 182 entities representing 92 tigers, totaling 3,649 bounding boxes. Most entities are represented at least 10 times in the subset. Unlike the Market-1501 dataset for person re-ID, not all entities are observed across different cameras due to restrictions in capturing at certain wild zoos. To address this, the authors ensure that significantly different frames from the same camera are included in the dataset. As previously stated, an entity refers to a single side of a tiger and serves as the fundamental unit for re-ID analysis.
 
-<img src="https://github.com/dataset-ninja/amur-tiger/assets/120389559/5d722890-c238-452f-8827-0062990da9ef" alt="image" width="800">
+<img src="https://github.com/dataset-ninja/amur-tiger/assets/120389559/5d722890-c238-452f-8827-0062990da9ef" alt="image" width="500">
 
 <span style="font-size: smaller; font-style: italic;">Distribution of occurrence times.</span>
 
