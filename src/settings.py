@@ -21,7 +21,7 @@ HIDE_DATASET = True  # set False when 100% sure about repo quality
 # * After uploading to instance ##
 ##################################
 LICENSE: License = License.CC_BY_NC_SA_4_0(source_url="https://lila.science/datasets/atrw")
-APPLICATIONS: List[Union[Industry, Domain, Research]] = [Industry.Environmental()]
+APPLICATIONS: List[Union[Industry, Domain, Research]] = [Research.Environmental()]
 CATEGORY: Category = Category.Environmental()
 
 CV_TASKS: List[CVTask] = [CVTask.ObjectDetection(), CVTask.Identification()]
@@ -100,7 +100,7 @@ TAGS: Optional[
             "egocentric",
         ]
     ]
-] = None
+] = ["keypoints", "re-identification"]
 
 
 SECTION_EXPLORE_CUSTOM_DATASETS: Optional[List[str]] = None
